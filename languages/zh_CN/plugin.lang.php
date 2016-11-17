@@ -8,10 +8,10 @@ defined('IN_ECJIA') or exit('No permission resources.');
 return array(
 	'unpayed' 		=> '自动关闭未付款订单',
 	'unpayed_desc' 	=> '计划任务-自动关闭未付款订单',
-    'unpayed_days'  => '关闭多久未付款的订单：',
+    'unpayed_hours'  => '关闭多久未付款的订单：',
 	'unpayed_count' => '每次关闭的个数：',
 
-	'unpayed_days_range' => array(
+	'unpayed_hours_range' => array(
 	    '1' 	=> '1小时',
 	    '3' 	=> '3小时',
 	    '6' 	=> '6小时',

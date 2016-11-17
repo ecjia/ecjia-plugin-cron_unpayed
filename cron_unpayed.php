@@ -2,7 +2,7 @@
 /*
 Plugin Name: 自动关闭未付款订单
 Plugin URI: http://www.ecjia.com/plugins/ecjia.cron_unpayed/
-Description: 自动关闭未付款订单
+Description: 计划任务-自动关闭未付款订单
 Author: ECJIA TEAM
 Version: 1.0.0
 Author URI: http://www.ecjia.com/

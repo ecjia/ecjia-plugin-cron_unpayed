@@ -1,6 +1,7 @@
 <?php
 /**
  * 自动处理插件
+ * 关闭未付款订单
  */
 defined('IN_ECJIA') or exit('No permission resources.');
 

@@ -74,13 +74,20 @@ class cron_unpayed extends CronAbstract
         
         //有设置未付款订单取消时间时
         if ($limit_time > 0) {
+        	\RC_Logger::getLogger('error')->info('testaaa');
+        	
         	//条件：下单时间+时间周期  <= 当前时间，未付款
         	$rows = RC_DB::table('order_info')
-        	->whereNotIn('order_status', array(OS_CANCELED,OS_INVALID))
+        	->where('order_status', OS_UNCONFIRMED)
         	->where('pay_status', PS_UNPAYED)
+        	->where('shipping_status', SS_UNSHIPPED)
         	->where(RC_DB::raw('add_time + '.$limit_time), '<=', $time)
         	->take($limit_rows)
         	->get();
+        	
+        	
+        	\RC_Logger::getLogger('error')->info($rows);
+        	\RC_Logger::getLogger('error')->info('testbbb');
         	
         	foreach ($rows as $order) {
         		$order_operate->operate($order, 'cancel', array('action_note' => '订单超时未支付，已自动取消'));

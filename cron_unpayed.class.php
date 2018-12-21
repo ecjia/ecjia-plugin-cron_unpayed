@@ -63,7 +63,17 @@ class cron_unpayed extends CronAbstract
         //$limit_time = $limit_time * 3600;
         
     	$limit_time = ecjia::config('orders_auto_cancel_time');
+    	
+    	\RC_Logger::getLogger('error')->info('test111');
+    	\RC_Logger::getLogger('error')->info($limit_time);
+    	\RC_Logger::getLogger('error')->info('test222');
+    	
     	$limit_time = $limit_time > 0 ? $limit_time*60 : 0;
+    	
+    	\RC_Logger::getLogger('error')->info('test333');
+    	\RC_Logger::getLogger('error')->info($limit_time);
+    	\RC_Logger::getLogger('error')->info('test444');
+    	
         $limit_rows = !empty($this->config['unpayed_count']) ? $this->config['unpayed_count'] : 100;
         
         RC_Loader::load_app_class('order_operate', 'orders', false);
@@ -72,10 +82,10 @@ class cron_unpayed extends CronAbstract
         $order_operate = new order_operate();
         $time = RC_Time::gmtime();
         
+        
+        
         //有设置未付款订单取消时间时
         if ($limit_time > 0) {
-        	\RC_Logger::getLogger('error')->info('testaaa');
-        	
         	//条件：下单时间+时间周期  <= 当前时间，未付款
         	$rows = RC_DB::table('order_info')
         	->where('order_status', OS_UNCONFIRMED)

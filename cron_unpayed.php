@@ -72,8 +72,9 @@ class plugin_cron_unpayed {
 }
 
 Ecjia_PluginManager::extend('cron_unpayed', function() {
+    RC_Locale::loadPluginTextdomain('cron_unpayed');
     require_once RC_Plugin::plugin_dir_path(__FILE__) . 'cron_unpayed.class.php';
-        return new cron_unpayed();
+    return new cron_unpayed();
 });
 
 RC_Plugin::register_activation_hook(__FILE__, array('plugin_cron_unpayed', 'install'));

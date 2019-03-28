@@ -85,7 +85,7 @@ class cron_unpayed extends CronAbstract
         	->get();
         	
         	foreach ($rows as $order) {
-        		$order_operate->operate($order, 'cancel', array('action_note' => '订单超时未支付，已自动取消'));
+        		$order_operate->operate($order, 'cancel', array('action_note' => __('订单超时未支付，已自动取消', 'cron_unpayed')));
         		//记录订单状态日志
         		OrderStatusLog::order_auto_cancel(array('order_id' => $order['order_id']));
         	}
